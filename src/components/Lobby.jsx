@@ -16,14 +16,15 @@ const Lobby = ({ onJoin }) => {
 
     try {
       let response
+      const API_URL = 'https://testvideocallbe-production.up.railway.app'
       if (isCreating) {
-        response = await axios.post('/api/video/create-room', {
+        response = await axios.post(`${API_URL}/api/video/create-room`, {
           roomName,
           participantName,
           enableRecording: false
         })
       } else {
-        response = await axios.post('/api/video/join-room', {
+        response = await axios.post(`${API_URL}/api/video/join-room`, {
           roomName,
           participantName
         })
